@@ -1,0 +1,152 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+title: "Animation applications in R"
+author: Kanishka Narayan (kbn)
+contents: This module contains code for the following,
+          1.)Animation application 
+          showing percent of countries achieveing SDGs across regions under SSP2, across                          times using the classic gganimate package along with the geom tile package. The user can                choose any of the 9 SDGs. The code will create an interactive shiny application that allows a           user to select any of the 9 SDGs and see the results for the same. 
+          2.) Animation application showing life expectancy relative to GDP per capita for
+          countries of different regions across time. User can select all groups or any one of the      
+          groups.
+          
+files required: Please download the files SSP2data.xlsx and ForR.xlsx and save the same to a folder                     named Rfiles located in "C:\Users\Public\Rfiles"
+R packages required: ggplot2,gganimate,readxl,dplyr,tweenr,tidyverse,readxl,tibble,ggstance,gapminder,shiny,gifsky
+In case of questions contact: Kanishka Narayan (kanishkan91@gmail.com)
+output: html_noteboo
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r, Animation for Shiny App in R}
+library(ggplot2)
+library(gganimate)
+library(readxl)
+library (dplyr)
+library(tweenr)
+library(tidyverse)
+library(readxl)
+library(tibble)
+library(ggstance)
+library(gapminder)
+library(shiny)
+library(gifski)
+
+
+
+SSP2Data <- read_excel("C:/Users/Public/Rfiles/SSP2Data.xlsx")
+SSP<- data.frame(SSP2Data)
+SSP= SSP%>%
+     group_by(Variable,Year)%>%
+    mutate(ordering = min_rank(CountryTarget/CountryRegion) * 1.0) %>%
+  ungroup()
+
+
+fnRankGroup<-function(x){
+
+  SSP<- subset(SSP,Variable==x)
+  
+}
+
+
+ui<- fluidPage(
+          titlePanel("Assessing SDGs under the SSP2 scenario"),
+          sidebarLayout(
+    sidebarPanel(
+      selectInput("SDG", "Please Select SDG Name", choices=c("Education:Primary Completion", "Poverty", "Education: Lower Secondary Graduation","Hunger: Malnourished Children","Electricity Access","Hunger:Undernourishment","Access to sanitation","Access to safe water","Child Mortality"))
+    ),
+          mainPanel(p("This visualization helps us understand the percent of countries across regions that achieve inidivdual SDGs under SSP2. This visualization has been created using outputs from the International Futures Tool. For more information visit pardee.du.edu/ifs"),imageOutput("BarGraph"))))
+
+server<-function(input,output){
+    
+  output$BarGraph<- renderImage({
+    # A temp file to save the output.
+    # This file will be removed later by renderImage
+    
+    outfile <- tempfile(fileext='.gif')
+
+SSP<-fnRankGroup(input$SDG)    
+p=(SSP) %>% 
+ggplot(aes(ordering, group=GEO.Region))+
+geom_tile(aes(y = ((CountryTarget/CountryRegion)*100)/2, 
+                height = (CountryTarget/CountryRegion)*100,
+                width = 0.9,fill=Legend), alpha = 0.9,position='identity')+
+geom_text(aes(y=(CountryTarget/CountryRegion)*100,label=SSP$GEO.Region),vjust=-0.5)+
+geom_text(aes(y=0,label=" ",vjust=2))+  
+coord_cartesian(clip = "off", expand = FALSE) +
+labs(caption='Source:International Futures:7.34',title=SSP$Variable,subtitle='{closest_state}',x="",y="Percent of countries in a region that achieve SDGs",size = 15,vjust=2) +  
+theme(plot.title = element_text(hjust = 0.5,vjust=2.12, size = 22),axis.ticks.x = element_blank(),
+        axis.text.x  = element_blank())+
+transition_states(Year, 
+                    transition_length = 2, state_length = 1) +
+ease_aes('cubic-in-out')
+
+anim_save("outfile.gif", animate(p,nframes=300,fps=20, width = 800, height = 400))
+
+list(src = "outfile.gif",
+     contentType = 'image/gif'
+         # width = 400,
+         # height = 300,
+         # alt = "This is alternate text"
+         )}, deleteFile = TRUE)}
+
+shinyApp(ui,server)
+
+```
+
+
+``` {r, Animation application for the gapminder dataset}
+
+library(gapminder)
+library(ggplot2)
+library(shiny)
+library(gganimate)
+
+theme_set(theme_bw())
+
+ui <- fluidPage(sidebarLayout(
+    sidebarPanel(
+      selectInput("Region", "Please Select Region", choices=c("Asia", "Africa","Americas","Europe","Oceania","ALL"))
+    ),
+    mainPanel(imageOutput("plot1"))))
+
+server <- function(input, output) {
+    output$plot1 <- renderImage({
+    # A temp file to save the output.
+    # This file will be removed later by renderImage
+    outfile <- tempfile(fileext='.gif')
+
+    # now make the animation
+    if (input$Region=="ALL") {
+    p = ggplot((gapminder), aes(gdpPercap, lifeExp, size = pop, 
+      color = continent)) + geom_point() + scale_x_log10() +
+
+      transition_manual(year)}
+    else {p = ggplot(subset(gapminder,continent==input$Region), aes(gdpPercap, lifeExp, size = pop, 
+      color = continent)) + geom_point() + scale_x_log10() +
+transition_manual(year)}
+    
+      # New
+
+    anim_save("outfile.gif", animate(p)) # New
+
+    # Return a list containing the filename
+     list(src = "outfile.gif",
+         contentType = 'image/gif'
+         # width = 400,
+         # height = 300,
+         # alt = "This is alternate text"
+         )}, deleteFile = TRUE)}
+
+shinyApp(ui, server)
+
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
