@@ -1,0 +1,13 @@
+Module,TYPE,TYPE NAME,Color
+Agriculture,2,Parameter,Red
+Sociopolitical,1,Variable,drakgray
+Demography,1,Variable,Blue
+Health,1,Variable,Purple
+Environment,1,Variable,Grey
+Interstate,2,Parameter,Azure
+Economy,2,Parameter,Green
+Infrastructure,1,Variable,Brown
+Energy,2,Parameter,Orange
+Other,2,Parameter,Pink
+Education,1,Variable,Yellow
+Water,2,Parameter,cyan

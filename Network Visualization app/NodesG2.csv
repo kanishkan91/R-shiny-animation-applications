@@ -1,0 +1,137 @@
+id,Module,TYPE,TYPE NAME,Color
+1,Demand,2,Parameter,Red
+2,Production,1,Variable,Red
+3,Investment,2,Parameter,Red
+4,Losses,1,Variable,Red
+5,Trade,1,Variable,Red
+6,AID,1,Variable,drakgray
+7, HIV/AIDS,1,Variable,Blue
+8,Mortality,1,Variable,Purple
+9,Trade,1,Variable,Green
+10,Alliances,2,Parameter,Azure
+11,Advanced Sustainability Analysis,1,Variable,White
+12,Births,2,Parameter,Blue
+13,consumption,1,Variable,Green
+14,Nutrition,2,Parameter,Red
+15,Economic Productivity,1,Variable,Green
+16,Carbon Emissions,2,Parameter,White
+17,Automobiles,1,Variable,Brown
+18,Wars,2,Parameter,Azure
+19, Mortality,1,Variable,Blue
+20,Impact on Economy,1,Variable,White
+21, Nutrition,1,Variable,Blue
+22,Conflict,2,Parameter,drakgray
+23,Demographic Indicators,1,Variable,Blue
+24,Power,1,Variable,Azure
+25,Culture,1,Variable,drakgray
+26,Electricity,2,Parameter,Brown
+27,Polity,1,Variable,drakgray
+28,Water Desalination,2,Parameter,Orange
+29,Distance,2,Parameter,Azure
+30,"Embassies,IGO and INGOs",1,Variable,Azure
+31,Treaties,1,Variable,Azure
+32,Resources,2,Parameter,Red
+33,Drug Demand,1,Variable,drakgray
+34,Soild Fuels,1,Variable,White
+35,Stocks,2,Parameter,Green
+36,Economic Freedom,1,Variable,drakgray
+37,Enrollment,1,Variable,Yellow
+38,Expenditure,1,Variable,Yellow
+39,Completion,1,Variable,Yellow
+40,Graduation,1,Variable,Yellow
+41,Intake,1,Variable,Yellow
+42,Climate change,1,Variable,White
+43,Years of Education,1,Variable,Yellow
+44,Quality,2,Parameter,Yellow
+45,Survival,1,Variable,Yellow
+46,Roads,2,Parameter,Brown
+47,Vocational,1,Variable,Yellow
+48,GDP,1,Variable,Green
+49, Gender,2,Parameter,Blue
+50,Power,1,Variable,drakgray
+51,Governance Effectiveness,1,Variable,drakgray
+52,Demand,2,Parameter,aquamarine
+53,Elasticities,2,Parameter,Green
+54,Governance Capacity,1,Variable,drakgray
+55,Governance Inclusion,1,Variable,drakgray
+56,Governance Secruity,1,Variable,drakgray
+57,Governance Index,1,Variable,drakgray
+58,Investment,2,Parameter,aquamarine
+59,Trade,1,Variable,aquamarine
+60,Production,1,Variable,aquamarine
+61,Prices,1,Variable,aquamarine
+62,Regulatory Quality,1,Variable,drakgray
+63,Shortages,1,Variable,aquamarine
+64,Risk,1,Variable,drakgray
+65,Stocks,1,Variable,aquamarine
+66,BMI,1,Variable,Purple
+67,Disability Adjusted Life Years,1,Variable,Purple
+68,Diabetes,2,Parameter,Purple
+69,Labor,2,Parameter,Green
+70,Income,1,Variable,Green
+71,Payments,1,Variable,Green
+72,Savings,1,Variable,Green
+73,Taxation,1,Variable,Green
+74,Prices,1,Variable,Red
+75,Freedom,1,Variable,drakgray
+76,Stocks,1,Variable,Red
+77,Gender Development,1,Variable,drakgray
+78,Morbidity,2,Parameter,Purple
+79,Informal Economy,2,Parameter,Green
+80,Government Finance,1,Variable,Green
+81,Health to Environment Linkages,2,Parameter,Purple
+82,Inequality,1,Variable,drakgray
+83,Smoking,2,Parameter,Purple
+84,Business Regulation,1,Variable,Green
+85,Corruption,1,Variable,drakgray
+86,Governance,2,Parameter,drakgray
+87,Stunting,1,Variable,Purple
+88,Fertility,2,Parameter,Blue
+89,Years of Life Lost to Disability,1,Variable,Purple
+90,Years of Life lost to Mortality,1,Variable,Purple
+91,ICT,1,Variable,Brown
+92,Human Development,1,Variable,drakgray
+93,Incomes,1,Variable,Green
+94, Population,1,Variable,Blue
+95,Budget,1,Variable,Brown
+96,Investment,1,Variable,Green
+97,Index,1,Variable,Brown
+98,Investment,1,Variable,Brown
+99,Telecommunication,1,Variable,Brown
+100,Capital,2,Parameter,Green
+101,Knowledge Development,1,Variable,drakgray
+102,Poverty,1,Variable,Green
+103,Productivity,2,Parameter,Green
+104,Water and Sanitation,1,Variable,Brown
+105,State failure,2,Parameter,drakgray
+106,Swing States,1,Variable,Azure
+107,Water Resources,2,Parameter,Orange
+108,Safe Water,1,Variable,Brown
+109,Water Use,1,Variable,Orange
+110,Water Waste,1,Variable,Orange
+111,Cost and Expenditure,1,Variable,Purple
+112,Water Demand,1,Variable,Orange
+113,Water Supply,1,Variable,Orange
+114,Water Withdrawal,1,Variable,Orange
+115,Other switches,2,Parameter,Pink
+116,Human Trafficking,1,Variable,drakgray
+117, Labor,2,Parameter,Blue
+118,Violence,1,Variable,drakgray
+119, Health,1,Variable,Blue
+120, Migration,2,Parameter,Blue
+121,Nuclear ,2,Parameter,Azure
+122,Network,1,Variable,drakgray
+123,Production,1,Variable,Green
+124,Prices,1,Variable,Green
+125,Expenditure,1,Variable,Green
+126,Threat,2,Parameter,Azure
+127,Reserves,1,Variable,aquamarine
+128,Survival,1,Variable,drakgray
+129,Governence Security,2,Parameter,drakgray
+130,Cook Stoves Use,1,Variable,White
+131,Swing States,2,Parameter,drakgray
+132,Transport,1,Variable,Brown
+133,Value Added,1,Variable,Green
+134,Inequality,2,Parameter,Green
+135,Water Prices,1,Variable,Orange
+136,Resources,1,Variable,aquamarine
