@@ -1244,7 +1244,7 @@ var infoTimer;
         .attr('transform', function(d) {
           if (d.id !== d.region) {
 
-            return d.angle > Math.PI ? 'translate(0, -4) rotate(180)' : 'translate(0, 4)';
+            return d.angle > Math.PI ? 'translate(0, -4) rotate(90)' : 'translate(0, 4)';
           }
 
         })
@@ -1278,7 +1278,7 @@ var infoTimer;
           })
           .attr('transform', function(d) {
             if (d.id !== d.region) {
-              return d.angle > Math.PI ? 'translate(0, -4) rotate(180)' : 'translate(0, 4)';
+              return d.angle > Math.PI ? 'translate(0, -4) rotate(90)' : 'translate(0, 4)';
             }
           })
           .attr('text-anchor', function(d) {
@@ -1319,7 +1319,7 @@ var infoTimer;
         .duration(config.animationDuration)
         .attrTween("d", function(d) {
           var i = d3.interpolate(previous.groups[d.id] || previous.groups[d.region] || meltPreviousGroupArc(d) || config.initialAngle.arc, d );
-          if (d.angle > Math.PI/2 && d.angle < Math.PI*3/2) {
+          if (d.angle > Math.PI/2 && d.angle < Math.PI*1/2) {
             return function (t) {
               return textPathArc2(i(t));
             };
@@ -1389,11 +1389,9 @@ var infoTimer;
             }                         //First NAME  !!!!
             return  out ; })
           .attr('startOffset', function(d) {
-          if (d.angle > Math.PI/2 && d.angle < Math.PI*3/2) {
+         {
             return '75%';
-          } else {
-            return '25%';
-          }
+          } 
         })
         .attr("xlink:href", function(d, i, k) { return "#group-textpath-arc" + d.id; })
 
